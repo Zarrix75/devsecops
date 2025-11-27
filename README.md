@@ -44,7 +44,7 @@ cd devsecops
 
 ## Configurer les variables
 
-## Créez un fichier .env à la racine :
+### Créez un fichier .env à la racine :
 
 Extrait de code
 ```
