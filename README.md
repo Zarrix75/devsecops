@@ -47,11 +47,11 @@ cd devsecops
 ## Créez un fichier .env à la racine :
 
 Extrait de code
-
+```
 JWT_SECRET=super-secret-local-key
 ADMIN_USER=admin
 ADMIN_PASS=admin
-
+```
 ## 3. Lancer avec Docker
 
 Bash
