@@ -42,6 +42,23 @@ git clone [https://github.com/Zarrix75/devsecops.git](https://github.com/Zarrix7
 cd devsecops
 ```
 
+Configurer les variables
+
+Créez un fichier .env à la racine :
+
+Extrait de code
+
+JWT_SECRET=super-secret-local-key
+ADMIN_USER=admin
+ADMIN_PASS=admin
+
+## 3. Lancer avec Docker
+
+Bash
+
+docker build -t secure-app .
+docker run -p 3000:3000 --env-file .env secure-app
+Projet réalisé par Zarrix75.
 
 
 
