@@ -42,9 +42,9 @@ git clone [https://github.com/Zarrix75/devsecops.git](https://github.com/Zarrix7
 cd devsecops
 ```
 
-Configurer les variables
+## Configurer les variables
 
-Créez un fichier .env à la racine :
+## Créez un fichier .env à la racine :
 
 Extrait de code
 
