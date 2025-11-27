@@ -40,6 +40,11 @@ Si vous souhaitez tester l'application sur votre machine :
 ```bash
 git clone [https://github.com/Zarrix75/devsecops.git](https://github.com/Zarrix75/devsecops.git)
 cd devsecops
+```
+
+
+
+
 
 
 
