@@ -54,12 +54,11 @@ ADMIN_PASS=admin
 ```
 ## 3. Lancer avec Docker
 
-Bash
-
+```
 docker build -t secure-app .
 docker run -p 3000:3000 --env-file .env secure-app
 Projet réalisé par Zarrix75.
-
+```
 
 
 
