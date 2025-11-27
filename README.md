@@ -46,7 +46,7 @@ cd devsecops
 
 ### Créez un fichier .env à la racine :
 
-Extrait de code
+# Extrait de code
 ```
 JWT_SECRET=super-secret-local-key
 ADMIN_USER=admin
