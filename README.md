@@ -15,7 +15,7 @@ Ce dépôt contient une application Node.js sécurisée, réalisée dans le cadr
 | **Secrets** | **Gitleaks** | Scanne l'historique Git pour s'assurer qu'aucun mot de passe ou clé API n'a été publié. |
 | **Container** | **Trivy** | Scanne l'image Docker finale pour détecter les vulnérabilités du système d'exploitation. |
 
-## 🛠️ Corrections Appliquées
+##  Corrections Appliquées
 
 L'application a été "durcie" (Hardening) grâce aux mesures suivantes :
 
@@ -38,5 +38,5 @@ Si vous souhaitez tester l'application sur votre machine :
 
 ### 1. Cloner le projet
 ```bash
-git clone [https://github.com/Zarrix75/devsecops.git](https://github.com/Zarrix75/devsecops.git)
+git clone https://github.com/Zarrix75/devsecops.git
 cd devsecops
