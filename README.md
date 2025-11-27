@@ -38,8 +38,8 @@ Si vous souhaitez tester l'application sur votre machine :
 
 ### 1. Cloner le projet
 ```bash
-git clone [https://github.com/Zarrix75/devsecops.git](https://github.com/Zarrix75/devsecops.git)
-cd devsecops
+git clone [https://github.com/your_username/your_repository.git](https://github.com/your_username/your_repository.git)
+cd your_repository
 ```
 
 ## Configurer les variables
