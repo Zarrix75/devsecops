@@ -1,32 +1,42 @@
 # Projet DevSecOps : Application Node.js Sécurisée
 
-![Security Pipeline](https://github.com/Zarrix75/devsecops/actions/workflows/security.yml/badge.svg)
+![DevSecOps Pipeline](https://github.com/Zarrix75/devsecops/actions/workflows/security.yml/badge.svg)
 
-Ce projet démontre la mise en place d'un pipeline **CI/CD sécurisé** (DevSecOps) avec GitHub Actions. L'objectif était de partir d'une application volontairement vulnérable et de la sécuriser entièrement.
+Ce dépôt contient une application Node.js sécurisée, réalisée dans le cadre d'un TD de Cybersécurité. L'objectif était de partir d'une application vulnérable et de mettre en place un pipeline **CI/CD DevSecOps** pour détecter et corriger les failles automatiquement.
 
-## Fonctionnalités du Pipeline
+## Le Pipeline de Sécurité (GitHub Actions)
 
-À chaque `git push`, le pipeline exécute les vérifications suivantes :
+À chaque mise à jour du code (`git push`), les outils suivants analysent le projet :
 
-| Outil | Type | Rôle |
-|-------|------|------|
-| **Semgrep** | SAST | Analyse le code pour trouver des failles (XSS, Injection, etc.) |
-| **Gitleaks** | Secrets | Vérifie qu'aucun mot de passe n'est caché dans l'historique |
-| **Trivy** | Container | Scanne l'image Docker pour trouver des CVE (vulnérabilités système) |
-| **NPM Audit** | SCA | Vérifie les failles dans les dépendances (`package.json`) |
+| Catégorie | Outil | Ce qu'il vérifie |
+|-----------|-------|------------------|
+| **SAST** | **Semgrep** | Analyse le code source pour trouver des failles (XSS, Injections, mauvaises pratiques). |
+| **SCA** | **NPM Audit** | Vérifie si les bibliothèques importées (`package.json`) contiennent des CVE connues. |
+| **Secrets** | **Gitleaks** | Scanne l'historique Git pour s'assurer qu'aucun mot de passe ou clé API n'a été publié. |
+| **Container** | **Trivy** | Scanne l'image Docker finale pour détecter les vulnérabilités du système d'exploitation. |
 
-## Corrections Appliquées
+## 🛠️ Corrections Appliquées
 
-L'application a été sécurisée via les mesures suivantes :
-- [x] **Code :** Suppression des secrets en dur (utilisation de `process.env`).
-- [x] **Docker :** Passage à une image `alpine` (plus légère) et utilisateur non-root.
-- [x] **Dépendances :** Mise à jour des paquets et ajout de `helmet` pour la sécurité HTTP.
-- [x] **GitHub Secrets :** Stockage sécurisé des variables d'environnement.
+L'application a été "durcie" (Hardening) grâce aux mesures suivantes :
 
-## Comment lancer le projet
+1.  **Gestion des Secrets :**
+    * Suppression des clés API (Stripe, SendGrid) et mots de passe hardcodés.
+    * Utilisation de variables d'environnement (`process.env`) via le module `dotenv`.
+    * Configuration des vrais secrets dans **GitHub Repository Secrets**.
 
-**Prérequis :** Docker installé.
+2.  **Sécurisation du Conteneur Docker :**
+    * Migration vers une image de base légère et sûre : `node:18-alpine`.
+    * Exécution de l'application avec un utilisateur non-root (`nodejs`) pour limiter les privilèges.
 
-1. **Construire l'image :**
-   ```bash
-   docker build -t secure-app .
+3.  **Qualité du Code :**
+    * Validation stricte des entrées utilisateurs.
+    * Suppression des routes de débogage exposant des informations sensibles.
+
+## Installation et Test en Local
+
+Si vous souhaitez tester l'application sur votre machine :
+
+### 1. Cloner le projet
+```bash
+git clone [https://github.com/Zarrix75/devsecops.git](https://github.com/Zarrix75/devsecops.git)
+cd devsecops
